@@ -13,8 +13,6 @@ urlpatterns = [
 
     # Example:
     path('', schema_view, name='schema'),
-    path('hero', views.superhero_list, name='superherolist'),
-    path('hero/<int:pk>', views.superhero_detail, name='superherodetail'),
-    path('enemylist', views.EnemyList.as_view(), name='enemylist'),
-    path('enemy/<int:pk>', views.EnemyDetail.as_view(), name='enemydetail'),
+    path('superhero', views.superhero, name='superhero'),
+    path('superhero/<int:pk>', views.superhero_detail, name='superherodetail'),
 ]

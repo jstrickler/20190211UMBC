@@ -1,6 +1,9 @@
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import (
+    ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
+)
 
 from superheroes.models import Superhero, Enemy, Power, City
 
@@ -9,41 +12,35 @@ from .serializers import (
 )
 
 # hero endpoints
-@api_view(['GET'])
-def superhero_list(request):
+@api_view(['GET', 'POST'])
+def superhero(request):
     if request.method == 'GET':
         heroes = Superhero.objects.all()
         serialized = SuperheroSerializer(heroes, many=True)
-        data = serialized.data
-    else:
-        data = "{}"
+        return Response(serialized.data)
+    else:  # POST
+        hero_serializer = SuperheroSerializer(data=request.data)
+        if hero_serializer.is_valid():
+            hero_serializer.save()
+            return Response(hero_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(hero_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    return Response(data)
-
-
-@api_view(['GET'])
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def superhero_detail(request, pk):
-    hero_obj = Superhero.objects.get(pk=pk)
-    serialized = SuperheroSerializer(hero_obj)
+    if request.method == 'GET':
+        hero_obj = Superhero.objects.get(pk=pk)
+        serialized = SuperheroSerializer(hero_obj)
 
-    return Response(serialized.data)
-
-
-# power endpoints
-@api_view(['GET'])
-def power_list(request):
-    powers = Superhero.objects.all()
-    serialized = SuperheroSerializer(powers, many=True)
-
-    return Response(serialized.data)
-
-
-@api_view(['GET'])
-def power(request, pk):
-    power_obj = Power.objects.get(pk=pk)
-    serialized = PowerSerializer(power_obj)
-
-    return Response(serialized.data)
+        return Response(serialized.data)
+    elif request.method == 'POST':
+        pass
+    elif request.method == 'PUT':
+        pass
+    elif request.method == 'DELETE':
+        pass
+    elif request.method == 'PATCH':
+        pass
 
 # enemy endpoints
 class EnemyList(ListAPIView):
@@ -51,10 +48,8 @@ class EnemyList(ListAPIView):
     model = Enemy
     serializer_class = EnemySerializer
 
-
 class EnemyDetail(RetrieveAPIView):
     queryset = Enemy.objects.all()
     model = Enemy
     serializer_class = EnemySerializer
 
-# city endpoints
