@@ -1,0 +1,12 @@
+{% extends "superheroes_base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+
+<h1>{{ heading | upper }}</h1>
+<body>
+    {% render_table object_list %}
+</body>
+
+{% endblock %}
+
