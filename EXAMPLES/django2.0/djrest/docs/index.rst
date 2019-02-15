@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Django Forms Example's documentation!
+Welcome to djrest's documentation!
 ====================================================================
 
 Contents:
@@ -12,10 +12,9 @@ Contents:
    :maxdepth: 2
 
    install
+   api
+   models
    deploy
-   docker_ec2
-   tests
-
 
 
 Indices and tables

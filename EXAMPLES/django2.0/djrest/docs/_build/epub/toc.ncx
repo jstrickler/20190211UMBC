@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="2"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Django Forms Example 0.1 documentation</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Welcome to djrest’s documentation!</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Install</text>
+      </navLabel>
+      <content src="install.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint3" playOrder="3">
+      <navLabel>
+        <text>API</text>
+      </navLabel>
+      <content src="api.xhtml" />  
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>API</text>
+        </navLabel>
+        <content src="api.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint5" playOrder="4">
+        <navLabel>
+          <text>Views</text>
+        </navLabel>
+        <content src="api.xhtml#module-apiv1.views" />  
+      </navPoint>
+      <navPoint id="navPoint6" playOrder="5">
+        <navLabel>
+          <text>Serializers</text>
+        </navLabel>
+        <content src="api.xhtml#module-apiv1.serializers" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint7" playOrder="6">
+      <navLabel>
+        <text>Models</text>
+      </navLabel>
+      <content src="models.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint8" playOrder="7">
+      <navLabel>
+        <text>Deploy</text>
+      </navLabel>
+      <content src="deploy.xhtml" />  
+    </navPoint>
+  </navMap>
+</ncx>

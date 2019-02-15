@@ -1,0 +1,16 @@
+2019-02-15T09:31:54 Created temporary directory: /tmp/pip-ephem-wheel-cache-3x7iz4to
+2019-02-15T09:31:54 Created temporary directory: /tmp/pip-req-tracker-hlsh_9nj
+2019-02-15T09:31:54 Created requirements tracker '/tmp/pip-req-tracker-hlsh_9nj'
+2019-02-15T09:31:54 Created temporary directory: /tmp/pip-install-2w72bo8m
+2019-02-15T09:31:54 Cleaning up...
+2019-02-15T09:31:54 Removed build tracker '/tmp/pip-req-tracker-hlsh_9nj'
+2019-02-15T09:31:54 ERROR: You must give at least one requirement to install (see "pip help install")
+2019-02-15T09:31:54 Exception information:
+2019-02-15T09:31:54 Traceback (most recent call last):
+2019-02-15T09:31:54   File "/home/jstrickler/.local/lib/python3.6/site-packages/pip/_internal/cli/base_command.py", line 179, in main
+2019-02-15T09:31:54     status = self.run(options, args)
+2019-02-15T09:31:54   File "/home/jstrickler/.local/lib/python3.6/site-packages/pip/_internal/commands/install.py", line 289, in run
+2019-02-15T09:31:54     self.name, wheel_cache
+2019-02-15T09:31:54   File "/home/jstrickler/.local/lib/python3.6/site-packages/pip/_internal/cli/base_command.py", line 306, in populate_requirement_set
+2019-02-15T09:31:54     '(see "pip help %(name)s")' % opts)
+2019-02-15T09:31:54 pip._internal.exceptions.CommandError: You must give at least one requirement to install (see "pip help install")

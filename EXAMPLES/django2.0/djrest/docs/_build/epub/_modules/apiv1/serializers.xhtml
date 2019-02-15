@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>apiv1.serializers</title>
+    <link rel="stylesheet" href="../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for apiv1.serializers</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># (c) 2017 CJ Associates</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="k">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">superheroes.models</span> <span class="k">import</span> <span class="n">Superhero</span><span class="p">,</span> <span class="n">City</span><span class="p">,</span> <span class="n">Power</span><span class="p">,</span> <span class="n">Enemy</span>
+
+
+<div class="viewcode-block" id="CitySerializer"><a class="viewcode-back" href="../../api.xhtml#apiv1.views.CitySerializer">[docs]</a><span class="k">class</span> <span class="nc">CitySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">City</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="PowerSerializer"><a class="viewcode-back" href="../../api.xhtml#apiv1.views.PowerSerializer">[docs]</a><span class="k">class</span> <span class="nc">PowerSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Power</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EnemySerializer"><a class="viewcode-back" href="../../api.xhtml#apiv1.views.EnemySerializer">[docs]</a><span class="k">class</span> <span class="nc">EnemySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">powers</span> <span class="o">=</span> <span class="n">PowerSerializer</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Enemy</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;powers&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># class SuperheroSerializer(serializers.ModelSerializer):</span>
+<span class="c1">#     city = serializers.StringRelatedField()</span>
+<span class="c1">#     enemies = serializers.StringRelatedField(many=True)</span>
+<span class="c1">#     powers = serializers.StringRelatedField(many=True)</span>
+<span class="c1">#</span>
+<span class="c1">#     class Meta:</span>
+<span class="c1">#         model = Superhero</span>
+<span class="c1">#         fields = (</span>
+<span class="c1">#             &#39;id&#39;, &#39;name&#39;, &#39;secret_identity&#39;, &#39;real_name&#39;, &#39;city&#39;, &#39;enemies&#39;,</span>
+<span class="c1">#             &#39;powers&#39;</span>
+<span class="c1">#         )</span>
+
+
+<div class="viewcode-block" id="SuperheroSerializer"><a class="viewcode-back" href="../../api.xhtml#apiv1.views.SuperheroSerializer">[docs]</a><span class="k">class</span> <span class="nc">SuperheroSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">CitySerializer</span><span class="p">()</span>
+    <span class="n">enemies</span> <span class="o">=</span> <span class="n">EnemySerializer</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">powers</span> <span class="o">=</span> <span class="n">PowerSerializer</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Superhero</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;secret_identity&#39;</span><span class="p">,</span> <span class="s1">&#39;real_name&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;enemies&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;powers&#39;</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

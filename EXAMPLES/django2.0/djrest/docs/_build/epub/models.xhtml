@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Models</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="models">
+<h1>Models</h1>
+<p>Database descriptions</p>
+<span class="target" id="module-superheroes.models"></span><p>Models for the Superhero database. Contains all data necessary for the API</p>
+<dl class="class">
+<dt id="superheroes.models.City">
+<em class="property">class </em><code class="descclassname">superheroes.models.</code><code class="descname">City</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/superheroes/models.xhtml#City"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>One city. This is the main base city of the superhero.</p>
+<dl class="exception">
+<dt id="superheroes.models.City.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="superheroes.models.City.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="superheroes.models.DefaultDate">
+<em class="property">class </em><code class="descclassname">superheroes.models.</code><code class="descname">DefaultDate</code><span class="sig-paren">(</span><em>verbose_name=None</em>, <em>name=None</em>, <em>auto_now=False</em>, <em>auto_now_add=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/superheroes/models.xhtml#DefaultDate"><span class="viewcode-link">[source]</span></a></dt>
+<dd><dl class="method">
+<dt id="superheroes.models.DefaultDate.from_db_value">
+<code class="descname">from_db_value</code><span class="sig-paren">(</span><em>value</em>, <em>expression</em>, <em>connection</em>, <em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/superheroes/models.xhtml#DefaultDate.from_db_value"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Overwrite predefined name from_db_value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – </p></li>
+<li><p><strong>expression</strong> – </p></li>
+<li><p><strong>connection</strong> – </p></li>
+<li><p><strong>context</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="superheroes.models.Enemy">
+<em class="property">class </em><code class="descclassname">superheroes.models.</code><code class="descname">Enemy</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/superheroes/models.xhtml#Enemy"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>An enemy of a Superhero – typically a supervillain.</p>
+<dl class="exception">
+<dt id="superheroes.models.Enemy.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="superheroes.models.Enemy.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="superheroes.models.Power">
+<em class="property">class </em><code class="descclassname">superheroes.models.</code><code class="descname">Power</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/superheroes/models.xhtml#Power"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>A superpower. May be attached to either a Superhero or an Enemy. Name should be short and
+distinctive. Description can be verbose.</p>
+<dl class="exception">
+<dt id="superheroes.models.Power.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="superheroes.models.Power.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="superheroes.models.Superhero">
+<em class="property">class </em><code class="descclassname">superheroes.models.</code><code class="descname">Superhero</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/superheroes/models.xhtml#Superhero"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>A hero with super powers. Like the rest of us, but better in every way.</p>
+<dl class="exception">
+<dt id="superheroes.models.Superhero.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="superheroes.models.Superhero.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

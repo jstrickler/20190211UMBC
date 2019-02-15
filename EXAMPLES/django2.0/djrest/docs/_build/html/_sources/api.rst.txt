@@ -1,0 +1,16 @@
+API
+===
+
+These are the API views
+
+Views
+-----
+
+.. automodule:: apiv1.views
+    :members:
+
+Serializers
+-----------
+
+.. automodule:: apiv1.serializers
+    :members:

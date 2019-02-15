@@ -4,6 +4,11 @@ from rest_framework.response import Response
 from rest_framework.generics import (
     ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 )
+import logging
+
+logger = logging.getLogger('django')
+local_logger = logging.getLogger('local')
+console_logger = logging.getLogger('console')
 
 from superheroes.models import Superhero, Enemy, Power, City
 
@@ -14,6 +19,9 @@ from .serializers import (
 # hero endpoints
 @api_view(['GET', 'POST'])
 def superhero(request):
+    logger.info('MESSAGE MESSAGE MESSAGE')
+    local_logger.debug("Local message")
+    console_logger.debug("You should see this!")
     if request.method == 'GET':
         heroes = Superhero.objects.all()
         serialized = SuperheroSerializer(heroes, many=True)
