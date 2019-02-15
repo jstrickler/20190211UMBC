@@ -45,11 +45,9 @@ def superhero_detail(request, pk):
 # enemy endpoints
 class EnemyList(ListAPIView):
     queryset = Enemy.objects.all()
-    model = Enemy
     serializer_class = EnemySerializer
 
 class EnemyDetail(RetrieveAPIView):
     queryset = Enemy.objects.all()
-    model = Enemy
     serializer_class = EnemySerializer
 

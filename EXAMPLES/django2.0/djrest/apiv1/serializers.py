@@ -4,24 +4,12 @@
 from rest_framework import serializers
 from superheroes.models import Superhero, City, Power, Enemy
 
-class SuperheroSerializer(serializers.ModelSerializer):
-    city = serializers.StringRelatedField()
-    enemies = serializers.StringRelatedField(many=True)
-    powers = serializers.StringRelatedField(many=True)
-
-    class Meta:
-        model = Superhero
-        fields = (
-            'id', 'name', 'secret_identity', 'real_name', 'city', 'enemies',
-            'powers'
-        )
-
 
 class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ('name')
+        fields = ('name',)
 
 
 class PowerSerializer(serializers.ModelSerializer):
@@ -32,9 +20,33 @@ class PowerSerializer(serializers.ModelSerializer):
 
 
 class EnemySerializer(serializers.ModelSerializer):
-    powers = serializers.StringRelatedField(many=True)
+    powers = PowerSerializer(many=True)
 
     class Meta:
         model = Enemy
         fields = ('id', 'name', 'powers')
 
+# class SuperheroSerializer(serializers.ModelSerializer):
+#     city = serializers.StringRelatedField()
+#     enemies = serializers.StringRelatedField(many=True)
+#     powers = serializers.StringRelatedField(many=True)
+#
+#     class Meta:
+#         model = Superhero
+#         fields = (
+#             'id', 'name', 'secret_identity', 'real_name', 'city', 'enemies',
+#             'powers'
+#         )
+
+
+class SuperheroSerializer(serializers.ModelSerializer):
+    city = CitySerializer()
+    enemies = EnemySerializer(many=True)
+    powers = PowerSerializer(many=True)
+
+    class Meta:
+        model = Superhero
+        fields = (
+            'id', 'name', 'secret_identity', 'real_name', 'city', 'enemies',
+            'powers'
+        )

@@ -14,5 +14,17 @@ urlpatterns = [
     # Example:
     path('', schema_view, name='schema'),
     path('superhero', views.superhero, name='superhero'),
-    path('superhero/<int:pk>', views.superhero_detail, name='superherodetail'),
+    path(
+        'superhero/<int:pk>',
+        views.superhero_detail,
+        name='superherodetail'
+    ),
+    path(
+        'enemy', views.EnemyList.as_view(), name='enemy'
+    ),
+    path(
+        'enemy/<int:pk>',
+        views.EnemyDetail.as_view(),
+        name='enemydetail'
+    )
 ]

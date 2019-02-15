@@ -1,0 +1,8 @@
+{
+  "name": "Supergirl",
+  "secret_identity": "Kara Danvers",
+  "real_name": "Kara Jor-el",
+  "city": "National City",
+  "powers": ["flight"],
+  "enemies": ["Lena Luthor"]
+}
